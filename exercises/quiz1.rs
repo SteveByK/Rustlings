@@ -13,11 +13,17 @@
 //
 // No hints this time ;)
 
-// I AM NOT DONE
 
 // Put your function here!
 // fn calculate_price_of_apples {
-
+    fn calculate_price_of_apples(num: u8) -> u8 {
+        if num > 40 {
+            num // 每个苹果 1 rustbuck
+        } else {
+            num * 2 // 每个苹果 2 rustbucks
+        }
+    }
+    
 // Don't modify this function!
 #[test]
 fn verify_test() {

@@ -1,0 +1,21 @@
+[0mA binary operation was attempted on a type which doesn't support it.[0m
+
+[0mErroneous code example:[0m
+
+[0m[0m[2mlet x = 12f32; // error: binary operation `<<` cannot be applied to
+               //        type `f32`
+
+x << 2;[0m
+
+[0mTo fix this error, please check that this type implements this binary[0m [0moperation. Example:[0m
+
+[0m[0m[2mlet x = 12u32; // the `u32` type does implement it:
+               // https://doc.rust-lang.org/stable/std/ops/trait.Shl.html
+
+x << 2; // ok![0m
+
+[0mIt is also possible to overload most operators for your own type by[0m [0mimplementing traits from [0m[0m[2mstd::ops[0m.[0m
+
+[0mString concatenation appends the string on the right to the string on the[0m [0mleft and may require reallocation. This requires ownership of the
+string[0m [0mon the left. If something should be added to a string literal, move the[0m [0mliteral to the heap by allocating it with [0m[0m[2mto_owned()[0m like in[0m [0m[0m[2m"Your
+text".to_owned()[0m.[0m[0m
